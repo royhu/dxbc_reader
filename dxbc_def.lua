@@ -183,16 +183,19 @@ end
 
 m.shader_def = {
     ['dp%d(.*)'] = function(op_args, a, b, c)
+        local n_suffix = tonumber(op_args.op_name:sub(#"dp" + 1))
+        local swizzle = {suffix = ('xyzw'):sub(1, n_suffix)} 
+
         local namea = get_var_name(a)
-        local nameb = get_var_name(b)
-        local namec = get_var_name(c)
+        local nameb = get_var_name(b, swizzle)
+        local namec = get_var_name(c, swizzle)
         if op_args._sat then
             return _format('%s = saturate(dot(%s, %s))', namea, nameb, namec)
         else
             return _format('%s = dot(%s, %s)', namea, nameb, namec)
         end
     end,
-    ['[d]?mov(.*)'] = function(op_args, a, b)
+    ['[d]?mov([^c]*)'] = function(op_args, a, b)
         if op_args._sat then
             return _format('%s = saturate(%s)', get_var_name(a), get_var_name(b, a))
         else

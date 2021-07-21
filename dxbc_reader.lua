@@ -170,6 +170,7 @@ while idx <= #parse_data do
             if op_func then
                 pre_process_command(command)
                 op_param = op_param and arr2dic( op_param) or {}
+                op_param['op_name'] = command.op
                 local op_str, block_tag = op_func(op_param, table.unpack(command.args))
 
                 local last_block = blocks[#blocks]
