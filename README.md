@@ -33,3 +33,5 @@ translate DXBC code like:
 **[reference]**
 
 - [lpeg](http://www.inf.puc-rio.br/~roberto/lpeg)
+- [ASM command](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/shader-model-5-assembly--directx-hlsl-)
+- [如何阅读和还原分析器中的DXBC?](https://zhuanlan.zhihu.com/p/346324622)
