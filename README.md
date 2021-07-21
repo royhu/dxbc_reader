@@ -29,3 +29,7 @@ translate DXBC code like:
     mov o1.w, r1.w                               >>    out.TEXCOORD1.w = r1.w
     mov o2.zw, l(0,0,0,0)                        >>    out.TEXCOORD2.zw = float2(0, 0)
 ```
+
+**[reference]**
+
+	[lpeg](http://www.inf.puc-rio.br/~roberto/lpeg)
