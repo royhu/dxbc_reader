@@ -172,7 +172,7 @@ local function get_var_name(register, swizzle, sep_suffix)
     end
 
     if register.abs then
-        ret = _format('abs(%s)', ret)
+        ret = _format('abs(%s)', register.arg or ret)
     end
     if register.neg then
         ret = '-' .. ret

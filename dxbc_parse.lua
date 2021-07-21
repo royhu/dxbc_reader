@@ -93,8 +93,12 @@ local _abs = C'|' / function()
         return {abs=true}
     end
 
+local _abs_func = P'abs(' * C(_var_name * _var_idx^-1 * _var_suffix^-1) * P')' / function(abs_arg)
+    return {abs = true, arg = abs_arg}
+end
+
 -- TODO abs process
-local var = (_negtive^-1*_vector + _negtive^-1 * _abs^-1
+local var = (_negtive^-1* (_vector + _abs_func) + _negtive^-1 * _abs^-1
                 * _var_name * _var_idx^-1 * _var_suffix^-1 * _abs^-1) / merge_tbl
 
 local args = var * (space^0*P(",")*space^0 *var + space^0*P("|")*space^0 *var)^0
