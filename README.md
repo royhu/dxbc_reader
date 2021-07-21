@@ -32,4 +32,4 @@ translate DXBC code like:
 
 **[reference]**
 
-	[lpeg](http://www.inf.puc-rio.br/~roberto/lpeg)
+- [lpeg](http://www.inf.puc-rio.br/~roberto/lpeg)
