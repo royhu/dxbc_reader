@@ -254,7 +254,7 @@ m.shader_def = {
         if op_args._sat then
             return _format('%s = saturate(sin(%s)); %s = saturate(cos(%s))', namea, nameb, namea, namec)
         else
-            return _format('%s = sin(%s); %s=cos(%s)', namea, nameb, namea, namec)
+            return _format('%s = sin(%s); %s = cos(%s)', namea, nameb, namea, namec)
         end
     end,
     ['log'] = function(op_args, a, b, c)
@@ -294,9 +294,9 @@ m.shader_def = {
             ret = _format('%s + %s', namec, named)
         end
         if op_args._sat then
-            return _format('%s = saturate(%s*%s)', namea, nameb, ret)
+            return _format('%s = saturate(%s * %s)', namea, nameb, ret)
         else
-            return _format('%s = %s*%s', namea, nameb, ret)
+            return _format('%s = %s * %s', namea, nameb, ret)
         end
     end,
     ['[du]?div(.*)'] = function(op_args, a, b, c)
@@ -304,9 +304,9 @@ m.shader_def = {
         local nameb = get_var_name(b, a)
         local namec = get_var_name(c, a)
         if op_args._sat then
-            return _format('%s = saturate(%s/%s)', namea, nameb, namec)
+            return _format('%s = saturate(%s / %s)', namea, nameb, namec)
         else
-            return _format('%s = %s/%s', namea, nameb, namec)
+            return _format('%s = %s / %s', namea, nameb, namec)
         end
     end,
     ['deriv_rt(.)(.*)'] = function(op_args, a, b)
